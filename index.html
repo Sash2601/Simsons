@@ -1,894 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Simson 360° Research Support Ecosystem</title>
-
-<style>
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #f5f8fc;
-    color: #123b60;
-}
-
-/* ================= HEADER ================= */
-
-header {
-    background: linear-gradient(135deg, #003b6f, #087ee8);
-    color: white;
-    text-align: center;
-    padding: 55px 20px;
-}
-
-.header-tag {
-    display: inline-block;
-    padding: 6px 16px;
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 30px;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-}
-
-header h1 {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 17px;
-    opacity: 0.9;
-}
-
-
-/* ================= MAIN CONTAINER ================= */
-
-.container {
-    width: 92%;
-    max-width: 1250px;
-    margin: 45px auto;
-}
-
-
-/* ================= SECTION ================= */
-
-.section {
-    margin-bottom: 55px;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 28px;
-}
-
-.section-heading h2 {
-    font-size: 28px;
-    color: #075ca8;
-    margin-bottom: 6px;
-}
-
-.section-heading p {
-    font-size: 14px;
-    color: #718096;
-}
-
-
-/* ================= CORE MODULES ================= */
-
-/* Clean 3 x 2 grid */
-
-.module-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1050px;
-    margin: auto;
-}
-
-
-/* Hexagon wrapper */
-
-.hex {
-    position: relative;
-    height: 165px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 30px 35px;
-
-    color: white;
-}
-
-
-/* Actual hexagon */
-
-.hex::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-        135deg,
-        #087ff0,
-        #0067ce
-    );
-
-    clip-path: polygon(
-        25% 0%,
-        75% 0%,
-        100% 50%,
-        75% 100%,
-        25% 100%,
-        0% 50%
-    );
-
-    z-index: 0;
-}
-
-
-/* Text stays ABOVE the shape */
-
-.hex-content {
-    position: relative;
-    z-index: 2;
-
-    width: 100%;
-}
-
-
-.hex h3 {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 7px;
-    white-space: nowrap;
-}
-
-.hex p {
-    font-size: 12px;
-    line-height: 1.4;
-    color: #eaf4ff;
-}
-
-
-/* ================= COMMUNITY ================= */
-
-.community-box {
-    background: white;
-
-    border: 1px solid #e1eaf3;
-    border-radius: 14px;
-
-    padding: 28px 35px;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 16px 45px;
-
-    max-width: 1050px;
-    margin: auto;
-
-    box-shadow: 0 5px 18px rgba(0, 50, 100, 0.06);
-}
-
-
-.community-item {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    font-size: 14px;
-    color: #40566d;
-}
-
-
-.check {
-    width: 26px;
-    height: 26px;
-
-    min-width: 26px;
-
-    border-radius: 50%;
-
-    background: #e9f5ff;
-    color: #0877d1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 13px;
-    font-weight: bold;
-}
-
-
-/* ================= SUBSCRIPTION ================= */
-
-.plans {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 22px;
-
-    max-width: 1050px;
-    margin: auto;
-}
-
-
-.plan {
-    background: white;
-
-    border: 1px solid #dce7f0;
-    border-radius: 14px;
-
-    padding: 30px 25px;
-
-    text-align: center;
-
-    min-height: 160px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    transition: 0.25s ease;
-}
-
-
-.plan:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 10px 25px rgba(0, 65, 120, 0.10);
-}
-
-
-.plan h3 {
-    font-size: 20px;
-    color: #064f91;
-    margin-bottom: 14px;
-}
-
-
-.plan p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #64788b;
-}
-
-
-/* Premium */
-
-.plan.premium {
-    border: 2px solid #087ee8;
-
-    box-shadow:
-        0 8px 25px rgba(8, 126, 232, 0.12);
-
-    position: relative;
-}
-
-
-.popular {
-    position: absolute;
-
-    top: -12px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: #087ee8;
-    color: white;
-
-    padding: 5px 16px;
-
-    border-radius: 20px;
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: 0.5px;
-}
-
-
-/* ================= AI PORTAL ================= */
-
-.ai-section {
-
-    max-width: 1050px;
-    margin: auto;
-
-    background:
-        linear-gradient(
-            135deg,
-            #003b6f,
-            #087ee8
-        );
-
-    color: white;
-
-    border-radius: 20px;
-
-    padding: 45px 50px;
-
-    text-align: center;
-
-    box-shadow:
-        0 15px 35px rgba(0, 60, 110, 0.18);
-}
-
-
-.ai-label {
-
-    display: inline-block;
-
-    background: rgba(255,255,255,0.15);
-
-    border: 1px solid rgba(255,255,255,0.25);
-
-    padding: 6px 15px;
-
-    border-radius: 20px;
-
-    font-size: 11px;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 14px;
-}
-
-
-.ai-section h2 {
-    font-size: 29px;
-    margin-bottom: 12px;
-}
-
-
-.ai-description {
-
-    max-width: 800px;
-
-    margin: auto;
-
-    font-size: 14px;
-
-    line-height: 1.7;
-
-    opacity: 0.9;
-}
-
-
-/* Search */
-
-.search-box {
-
-    max-width: 650px;
-
-    margin: 28px auto 20px;
-
-    display: flex;
-
-    background: white;
-
-    padding: 5px;
-
-    border-radius: 9px;
-}
-
-
-.search-box input {
-
-    flex: 1;
-
-    border: none;
-
-    outline: none;
-
-    padding: 13px 15px;
-
-    font-size: 13px;
-
-    color: #333;
-
-    border-radius: 7px;
-}
-
-
-.search-box button {
-
-    border: none;
-
-    background: #076dcc;
-
-    color: white;
-
-    padding: 0 24px;
-
-    border-radius: 7px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-}
-
-
-.tagline {
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    margin-top: 15px;
-}
-
-
-/* ================= FOOTER ================= */
-
-footer {
-
-    background: #06365e;
-
-    color: #cbd9e5;
-
-    text-align: center;
-
-    padding: 22px;
-
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 900px) {
-
-    .module-grid {
-        grid-template-columns: repeat(2, 1fr);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simson 360° Research Support Ecosystem</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .plans {
-        grid-template-columns: 1fr;
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f6f9fc;
+      color: #17324d;
+      line-height: 1.6;
     }
 
-}
+    /* ---------- HEADER ---------- */
 
+    header {
+      background: linear-gradient(135deg, #063b66, #0877c9);
+      color: white;
+      padding: 65px 20px;
+      text-align: center;
+    }
 
-@media (max-width: 600px) {
+    header .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 7px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
 
     header h1 {
-        font-size: 29px;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
     header p {
-        font-size: 14px;
+      font-size: 18px;
+      opacity: 0.9;
     }
+
+    /* ---------- MAIN ---------- */
+
+    .container {
+      width: 92%;
+      max-width: 1180px;
+      margin: 45px auto;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      color: #063b66;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #718096;
+      font-size: 15px;
+    }
+
+    /* ---------- CORE MODULES ---------- */
 
     .module-grid {
-        grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
+
+    .module {
+      background: white;
+      border: 1px solid #e3edf5;
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+
+    .module:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 75, 130, 0.12);
+      border-color: #6eb6e8;
+    }
+
+    .module-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 15px;
+      border-radius: 12px;
+      background: #eaf5ff;
+      color: #0877c9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .module h3 {
+      font-size: 17px;
+      color: #063b66;
+      margin-bottom: 7px;
+    }
+
+    .module p {
+      font-size: 13px;
+      color: #718096;
+    }
+
+    /* ---------- COMMUNITY ---------- */
 
     .community-box {
-        grid-template-columns: 1fr;
+      background: white;
+      border-radius: 16px;
+      padding: 30px 35px;
+      border: 1px solid #e3edf5;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
+    .community-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #40566d;
+      font-size: 14px;
+    }
+
+    .check {
+      width: 25px;
+      height: 25px;
+      background: #e8f6ef;
+      color: #159957;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* ---------- SUBSCRIPTION ---------- */
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .plan {
+      background: white;
+      border: 1px solid #e1eaf2;
+      border-radius: 16px;
+      padding: 30px 25px;
+      text-align: center;
+      position: relative;
+    }
+
+    .plan.featured {
+      border: 2px solid #0877c9;
+      box-shadow: 0 10px 30px rgba(8,119,201,0.12);
+    }
+
+    .popular {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0877c9;
+      color: white;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .plan h3 {
+      color: #063b66;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .plan p {
+      color: #718096;
+      font-size: 14px;
+    }
+
+    /* ---------- AI PORTAL ---------- */
+
     .ai-section {
-        padding: 35px 20px;
+      background: linear-gradient(135deg, #063b66, #0877c9);
+      border-radius: 22px;
+      padding: 50px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,55,100,0.18);
+    }
+
+    .ai-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 7px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    .ai-section h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .ai-section p {
+      max-width: 750px;
+      margin: 0 auto 25px;
+      opacity: 0.9;
+      font-size: 15px;
     }
 
     .search-box {
-        flex-direction: column;
-        gap: 6px;
-        background: transparent;
+      max-width: 650px;
+      margin: 25px auto;
+      background: white;
+      border-radius: 10px;
+      padding: 6px;
+      display: flex;
     }
 
     .search-box input {
-        height: 45px;
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 13px 15px;
+      font-size: 14px;
+      border-radius: 8px;
     }
 
     .search-box button {
-        height: 45px;
+      border: none;
+      background: #0877c9;
+      color: white;
+      padding: 0 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
     }
 
-}
+    .tagline {
+      font-size: 16px !important;
+      font-weight: 600;
+      margin-top: 15px !important;
+    }
 
-</style>
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      background: #062f50;
+      color: #c8d8e6;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 13px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 800px) {
+
+      header h1 {
+        font-size: 30px;
+      }
+
+      .module-grid,
+      .plans {
+        grid-template-columns: 1fr;
+      }
+
+      .community-box {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-section {
+        padding: 35px 20px;
+      }
+
+      .search-box {
+        flex-direction: column;
+        background: transparent;
+        gap: 8px;
+      }
+
+      .search-box input,
+      .search-box button {
+        height: 48px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- HEADER -->
 
-<!-- ================= HEADER ================= -->
+  <header>
 
-<header>
+    <div class="tag">SIMSON LIFE SCIENCES</div>
 
-    <div class="header-tag">
-        SIMSON LIFE SCIENCES
-    </div>
-
-    <h1>
-        360° Research Support Ecosystem
-    </h1>
+    <h1>360° Research Support Ecosystem</h1>
 
     <p>
-        From one molecule search to end-to-end research support
+      From one molecule search to end-to-end research support
     </p>
 
-</header>
+  </header>
 
 
+  <main class="container">
 
-<main class="container">
 
+    <!-- CORE MODULES -->
 
-<!-- ================= CORE MODULES ================= -->
+    <section class="section">
 
-<section class="section">
-
-    <div class="section-heading">
-
-        <h2>
-            Research Support Ecosystem
-        </h2>
+      <div class="section-title">
+        <h2>Research Support, All in One Place</h2>
 
         <p>
-            Everything researchers need, connected in one ecosystem.
+          A connected ecosystem designed to support every stage of scientific research.
         </p>
-
-    </div>
-
-
-    <div class="module-grid">
+      </div>
 
 
-        <div class="hex">
+      <div class="module-grid">
 
-            <div class="hex-content">
-
-                <h3>ON SEARCH</h3>
-
-                <p>
-                    Explore molecule properties
-                </p>
-
-            </div>
-
+        <div class="module">
+          <div class="module-icon">⌕</div>
+          <h3>ON SEARCH</h3>
+          <p>Explore molecule properties and research information.</p>
         </div>
 
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>RE-ORDER</h3>
-
-                <p>
-                    Re-order for further research
-                </p>
-
-            </div>
-
+        <div class="module">
+          <div class="module-icon">↻</div>
+          <h3>RE-ORDER</h3>
+          <p>Quickly reorder products for continued research.</p>
         </div>
 
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>ON SYNTHESIS</h3>
-
-                <p>
-                    Support molecule development
-                </p>
-
-            </div>
-
+        <div class="module">
+          <div class="module-icon">⚗</div>
+          <h3>ON SYNTHESIS</h3>
+          <p>Support molecule development and synthesis requirements.</p>
         </div>
 
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>QC & IDENTITY</h3>
-
-                <p>
-                    Verify quality and identity
-                </p>
-
-            </div>
-
+        <div class="module">
+          <div class="module-icon">✓</div>
+          <h3>QC & IDENTITY</h3>
+          <p>Verify product quality, identity and research reliability.</p>
         </div>
 
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>TECHNICAL SUPPORT</h3>
-
-                <p>
-                    Expert scientific guidance
-                </p>
-
-            </div>
-
+        <div class="module">
+          <div class="module-icon">?</div>
+          <h3>TECHNICAL SUPPORT</h3>
+          <p>Connect with experts for scientific and technical guidance.</p>
         </div>
 
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>DATA MANAGEMENT</h3>
-
-                <p>
-                    Organize research data
-                </p>
-
-            </div>
-
+        <div class="module">
+          <div class="module-icon">▤</div>
+          <h3>DATA MANAGEMENT</h3>
+          <p>Organize, access and manage valuable research data.</p>
         </div>
 
+      </div>
 
-    </div>
-
-</section>
-
+    </section>
 
 
-<!-- ================= COMMUNITY ================= -->
+    <!-- COMMUNITY -->
 
-<section class="section">
+    <section class="section">
 
-    <div class="section-heading">
+      <div class="section-title">
 
-        <h2>
-            Scientific Community
-        </h2>
+        <h2>Scientific Community</h2>
 
         <p>
-            Learn, collaborate and stay updated.
+          Learn, collaborate and stay updated with the research community.
         </p>
 
-    </div>
+      </div>
 
 
-    <div class="community-box">
-
-
-        <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Ask technical questions
-            </span>
-
-        </div>
-
+      <div class="community-box">
 
         <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Download regulatory updates
-            </span>
-
+          <span class="check">✓</span>
+          Ask technical questions
         </div>
-
 
         <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Attend webinars and discussions
-            </span>
-
+          <span class="check">✓</span>
+          Download regulatory updates
         </div>
-
 
         <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Access application notes
-            </span>
-
+          <span class="check">✓</span>
+          Attend webinars and discussions
         </div>
-
 
         <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Earn badges and certificates
-            </span>
-
+          <span class="check">✓</span>
+          Access application notes
         </div>
-
 
         <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Participate in scientific challenges
-            </span>
-
+          <span class="check">✓</span>
+          Earn badges and certificates
         </div>
 
+        <div class="community-item">
+          <span class="check">✓</span>
+          Participate in scientific challenges
+        </div>
 
-    </div>
+      </div>
 
-</section>
+    </section>
 
 
+    <!-- SUBSCRIPTION -->
 
-<!-- ================= SUBSCRIPTION ================= -->
+    <section class="section">
 
-<section class="section">
+      <div class="section-title">
 
-    <div class="section-heading">
-
-        <h2>
-            Scientific Subscription
-        </h2>
+        <h2>Scientific Subscription</h2>
 
         <p>
-            Flexible research support for every requirement.
+          Flexible research support plans for every level of need.
         </p>
 
-    </div>
+      </div>
 
 
-    <div class="plans">
+      <div class="plans">
+
+        <div class="plan">
+
+          <h3>Basic</h3>
+
+          <p>
+            Quarterly shipments<br>
+            Technical support
+          </p>
+
+        </div>
+
+
+        <div class="plan featured">
+
+          <div class="popular">
+            MOST POPULAR
+          </div>
+
+          <h3>Premium</h3>
+
+          <p>
+            Early access to new products<br>
+            Regulatory updates<br>
+            Enhanced research support
+          </p>
+
+        </div>
 
 
         <div class="plan">
 
-            <h3>
-                Basic
-            </h3>
+          <h3>Enterprise</h3>
 
-            <p>
-                Quarterly shipments<br>
-                Technical support
-            </p>
-
-        </div>
-
-
-
-        <div class="plan premium">
-
-            <div class="popular">
-                MOST POPULAR
-            </div>
-
-            <h3>
-                Premium
-            </h3>
-
-            <p>
-                Early access to new products<br>
-                Regulatory updates
-            </p>
+          <p>
+            All Premium benefits<br>
+            Dedicated account manager<br>
+            Customized support
+          </p>
 
         </div>
 
+      </div>
+
+    </section>
 
 
-        <div class="plan">
+    <!-- AI RESEARCH PORTAL -->
 
-            <h3>
-                Enterprise
-            </h3>
+    <section class="section">
 
-            <p>
-                All benefits<br>
-                Dedicated account manager
-            </p>
+      <div class="ai-section">
 
+        <div class="ai-badge">
+          AI-POWERED RESEARCH
         </div>
 
+        <h2>AI Research Companion</h2>
 
-    </div>
-
-</section>
-
-
-
-<!-- ================= AI PORTAL ================= -->
-
-<section class="section">
-
-    <div class="ai-section">
-
-        <div class="ai-label">
-            AI-POWERED RESEARCH
-        </div>
-
-
-        <h2>
-            AI Research Companion
-        </h2>
-
-
-        <p class="ai-description">
-
-            Upload a CAS Number, API Name or Molecule Name
-            to instantly discover impurities, reference standards,
-            isotopes, nitrosamines, metabolites and regulatory documents.
-
+        <p>
+          Upload a CAS Number, API Name or Molecule Name and instantly
+          discover relevant impurities, reference standards, isotopes,
+          nitrosamines, metabolites and regulatory documents.
         </p>
 
 
         <div class="search-box">
 
-            <input
-                type="text"
-                placeholder="Enter CAS number, API or molecule name..."
-            >
+          <input
+            type="text"
+            placeholder="Enter CAS number, API or molecule name..."
+          >
 
-            <button>
-                Search
-            </button>
+          <button>
+            Search
+          </button>
 
         </div>
 
 
         <p class="tagline">
-
-            “Don’t just sell chemicals. Sell scientific intelligence.”
-
+          “Don’t just sell chemicals. Sell scientific intelligence.”
         </p>
 
-    </div>
+      </div>
 
-</section>
-
-
-</main>
+    </section>
 
 
+  </main>
 
-<!-- ================= FOOTER ================= -->
 
-<footer>
+  <!-- FOOTER -->
+
+  <footer>
 
     © 2026 Simson Life Sciences Pvt. Ltd.
     <br>
-
     Research Support • Scientific Intelligence • Innovation
 
-</footer>
+  </footer>
 
 
 </body>
