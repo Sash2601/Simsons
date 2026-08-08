@@ -4,31 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simson 360° Research Support Ecosystem</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
-
     body {
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #f8f9fa, #eaeaea);
-  color: #2c3e50;
-}
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background-color: #f4f7fb;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
 
-.hex {
-  background: linear-gradient(145deg, #006400, #228b22);
-  color: #fff;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-}
-
-.hex:hover {
-  background: linear-gradient(145deg, #004d00, #006400);
-  transform: scale(1.05);
-}
-
-header {
-  background: linear-gradient(135deg, #8b0000, #b22222);
-  color: #fff;
-}
-   
     /* Navigation Bar */
     nav {
       background: #003366;
@@ -94,19 +79,20 @@ header {
       text-align: center;
     }
 
-    .hex-grid {
+    /* Rounded Cards for Modules */
+    .module-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
       margin-top: 30px;
     }
-    .hex {
-      width: 170px;
-      height: 150px;
+    .module {
+      width: 180px;
+      height: 180px;
       background: linear-gradient(135deg, #007bff, #0056b3);
       color: white;
-      clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+      border-radius: 50%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -115,12 +101,13 @@ header {
       transition: all 0.3s ease;
       font-weight: 600;
       text-align: center;
+      padding: 10px;
     }
-    .hex:hover {
+    .module:hover {
       transform: translateY(-5px) scale(1.05);
       background: linear-gradient(135deg, #0056b3, #003366);
     }
-    .hex small {
+    .module small {
       font-size: 0.85em;
       color: #e6f0ff;
       margin-top: 5px;
@@ -169,7 +156,7 @@ header {
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
     .contact button {
       background: #007bff;
@@ -217,13 +204,13 @@ header {
   <!-- Core Modules -->
   <div class="container" id="modules">
     <h2>Core Modules</h2>
-    <div class="hex-grid">
-      <div class="hex">ON SEARCH<br><small>Explore molecule properties</small></div>
-      <div class="hex">RE‑ORDER<br><small>Re‑order for further research</small></div>
-      <div class="hex">ON SYNTHESIS<br><small>Support molecule development</small></div>
-      <div class="hex">QC IDENTITY<br><small>Verify quality and identity</small></div>
-      <div class="hex">TECHNICAL SUPPORT<br><small>Expert guidance</small></div>
-      <div class="hex">DATA MANAGEMENT<br><small>Organize research data</small></div>
+    <div class="module-grid">
+      <div class="module">ON SEARCH<br><small>Explore molecule properties</small></div>
+      <div class="module">RE‑ORDER<br><small>Re‑order for further research</small></div>
+      <div class="module">ON SYNTHESIS<br><small>Support molecule development</small></div>
+      <div class="module">QC IDENTITY<br><small>Verify quality and identity</small></div>
+      <div class="module">TECHNICAL SUPPORT<br><small>Expert guidance</small></div>
+      <div class="module">DATA MANAGEMENT<br><small>Organize research data</small></div>
     </div>
 
     <!-- Community -->
@@ -253,6 +240,7 @@ header {
       </div>
     </div>
 
+ 
     <h2>AI Research Companion Portal</h2>
     <p>Upload CAS Number, API Name, or Molecule Name to get instant recommendations for impurities, reference standards, isotopes, nitrosamines, metabolites, and regulatory documents.</p>
     <p><strong>Tagline:</strong> “Don’t just sell chemicals. Sell scientific intelligence.”</p>
