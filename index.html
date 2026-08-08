@@ -1,12 +1,13 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Simson 360° Research Support Ecosystem</title>
+
 
     <style>
 
@@ -22,6 +23,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -37,30 +39,45 @@
         ===================================================== */
 
         .navbar {
+
             height: 68px;
+
             background: #ffffff;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 0 6%;
+
             position: sticky;
             top: 0;
+
             z-index: 1000;
+
             border-bottom: 1px solid #e3ebf3;
-            box-shadow: 0 2px 12px rgba(0, 50, 100, 0.06);
+
+            box-shadow:
+                0 2px 12px rgba(0, 50, 100, 0.06);
         }
 
 
         /* Logo */
 
         .logo {
+
             font-size: 20px;
+
             font-weight: 700;
+
             color: #064f91;
+
             white-space: nowrap;
         }
 
+
         .logo span {
+
             color: #087ee8;
         }
 
@@ -68,57 +85,46 @@
         /* Navigation links */
 
         .nav-links {
+
             display: flex;
+
             align-items: center;
+
             gap: 5px;
         }
 
+
         .nav-links a {
+
             text-decoration: none;
+
             color: #49657d;
+
             font-size: 13px;
+
             font-weight: 600;
+
             padding: 9px 14px;
+
             border-radius: 7px;
+
             transition: all 0.2s ease;
-            cursor: pointer;
         }
 
+
         .nav-links a:hover {
+
             background: #eef7ff;
+
             color: #0877d1;
         }
 
+
         .nav-links a.active {
+
             background: #087ee8;
+
             color: white;
-            box-shadow: 0 3px 8px rgba(8, 126, 232, 0.2);
-        }
-
-
-        /* =====================================================
-           TAB CONTENT
-        ===================================================== */
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
 
@@ -127,6 +133,7 @@
         ===================================================== */
 
         header {
+
             background:
                 linear-gradient(
                     135deg,
@@ -135,28 +142,45 @@
                 );
 
             color: white;
+
             text-align: center;
+
             padding: 65px 20px;
         }
 
+
         .header-tag {
+
             display: inline-block;
+
             padding: 6px 17px;
+
             border: 1px solid rgba(255,255,255,0.4);
+
             border-radius: 30px;
+
             font-size: 11px;
+
             letter-spacing: 1.5px;
+
             margin-bottom: 16px;
         }
 
+
         header h1 {
+
             font-size: 42px;
+
             font-weight: 700;
+
             margin-bottom: 10px;
         }
 
+
         header p {
+
             font-size: 17px;
+
             opacity: 0.9;
         }
 
@@ -166,8 +190,11 @@
         ===================================================== */
 
         .container {
+
             width: 92%;
+
             max-width: 1250px;
+
             margin: 50px auto;
         }
 
@@ -177,22 +204,33 @@
         ===================================================== */
 
         .section {
+
             margin-bottom: 65px;
         }
 
+
         .section-heading {
+
             text-align: center;
+
             margin-bottom: 30px;
         }
 
+
         .section-heading h2 {
+
             font-size: 28px;
+
             color: #075ca8;
+
             margin-bottom: 6px;
         }
 
+
         .section-heading p {
+
             font-size: 14px;
+
             color: #718096;
         }
 
@@ -202,10 +240,16 @@
         ===================================================== */
 
         .module-grid {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 30px;
+
             max-width: 1050px;
+
             margin: auto;
         }
 
@@ -213,19 +257,33 @@
         /* Hexagon */
 
         .hex {
+
             position: relative;
+
             height: 175px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             text-align: center;
+
             padding: 30px 45px;
+
             color: white;
         }
 
+
+        /* Shape */
+
         .hex::before {
+
             content: "";
+
             position: absolute;
+
             inset: 0;
 
             background:
@@ -246,10 +304,15 @@
                 );
 
             z-index: 0;
+
             transition: 0.25s ease;
         }
 
+
+        /* Hover */
+
         .hex:hover::before {
+
             transform: scale(1.04);
 
             background:
@@ -260,22 +323,37 @@
                 );
         }
 
+
+        /* Text */
+
         .hex-content {
+
             position: relative;
+
             z-index: 2;
+
             width: 100%;
         }
 
+
         .hex h3 {
+
             font-size: 17px;
+
             font-weight: 600;
+
             margin-bottom: 7px;
+
             white-space: nowrap;
         }
 
+
         .hex p {
+
             font-size: 12px;
+
             line-height: 1.4;
+
             color: #eaf4ff;
         }
 
@@ -285,17 +363,24 @@
         ===================================================== */
 
         .community-box {
+
             background: white;
+
             border: 1px solid #e1eaf3;
+
             border-radius: 14px;
+
             padding: 30px 40px;
 
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(2, 1fr);
 
             gap: 18px 50px;
 
             max-width: 1050px;
+
             margin: auto;
 
             box-shadow:
@@ -303,27 +388,43 @@
                 rgba(0, 50, 100, 0.06);
         }
 
+
         .community-item {
+
             display: flex;
+
             align-items: center;
+
             gap: 12px;
+
             font-size: 14px;
+
             color: #40566d;
         }
 
+
         .check {
+
             width: 27px;
+
             height: 27px;
+
             min-width: 27px;
+
             border-radius: 50%;
+
             background: #e9f5ff;
+
             color: #0877d1;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             font-size: 13px;
+
             font-weight: bold;
         }
 
@@ -333,45 +434,72 @@
         ===================================================== */
 
         .plans {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 22px;
+
             max-width: 1050px;
+
             margin: auto;
         }
 
+
         .plan {
+
             background: white;
+
             border: 1px solid #dce7f0;
+
             border-radius: 14px;
+
             padding: 30px 25px;
+
             text-align: center;
+
             min-height: 165px;
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: center;
 
             position: relative;
+
             transition: all 0.25s ease;
         }
 
+
         .plan:hover {
+
             transform: translateY(-4px);
+
             box-shadow:
                 0 10px 25px
                 rgba(0, 65, 120, 0.10);
         }
 
+
         .plan h3 {
+
             font-size: 20px;
+
             color: #064f91;
+
             margin-bottom: 14px;
         }
 
+
         .plan p {
+
             font-size: 14px;
+
             line-height: 1.8;
+
             color: #64788b;
         }
 
@@ -379,27 +507,37 @@
         /* Premium card */
 
         .plan.premium {
+
             border: 2px solid #087ee8;
+
             box-shadow:
                 0 8px 25px
                 rgba(8, 126, 232, 0.12);
         }
 
+
         .popular {
+
             position: absolute;
+
             top: -12px;
+
             left: 50%;
 
             transform: translateX(-50%);
 
             background: #087ee8;
+
             color: white;
 
             padding: 5px 16px;
+
             border-radius: 20px;
 
             font-size: 10px;
+
             font-weight: 700;
+
             letter-spacing: 0.5px;
         }
 
@@ -409,7 +547,9 @@
         ===================================================== */
 
         .ai-section {
+
             max-width: 1050px;
+
             margin: auto;
 
             background:
@@ -420,8 +560,11 @@
                 );
 
             color: white;
+
             border-radius: 20px;
+
             padding: 48px 50px;
+
             text-align: center;
 
             box-shadow:
@@ -429,7 +572,9 @@
                 rgba(0, 60, 110, 0.18);
         }
 
+
         .ai-label {
+
             display: inline-block;
 
             background:
@@ -440,24 +585,35 @@
                 rgba(255,255,255,0.25);
 
             padding: 6px 15px;
+
             border-radius: 20px;
 
             font-size: 11px;
+
             letter-spacing: 1px;
+
             margin-bottom: 14px;
         }
 
+
         .ai-section h2 {
+
             font-size: 30px;
+
             margin-bottom: 12px;
         }
 
+
         .ai-description {
+
             max-width: 800px;
+
             margin: auto;
 
             font-size: 14px;
+
             line-height: 1.7;
+
             opacity: 0.9;
         }
 
@@ -465,51 +621,71 @@
         /* Search */
 
         .search-box {
+
             max-width: 650px;
+
             margin: 28px auto 20px;
 
             display: flex;
 
             background: white;
+
             padding: 5px;
+
             border-radius: 9px;
         }
 
+
         .search-box input {
+
             flex: 1;
+
             border: none;
+
             outline: none;
 
             padding: 13px 15px;
 
             font-size: 13px;
+
             color: #333;
 
             border-radius: 7px;
         }
 
+
         .search-box button {
+
             border: none;
 
             background: #076dcc;
+
             color: white;
 
             padding: 0 24px;
+
             border-radius: 7px;
 
             font-weight: 600;
+
             cursor: pointer;
 
             transition: 0.2s ease;
         }
 
+
         .search-box button:hover {
+
             background: #0059ad;
         }
 
+
         .tagline {
+
             font-size: 15px;
+
             font-weight: 600;
+
             margin-top: 15px;
         }
 
@@ -519,13 +695,17 @@
         ===================================================== */
 
         footer {
+
             background: #06365e;
+
             color: #cbd9e5;
 
             text-align: center;
+
             padding: 24px;
 
             font-size: 12px;
+
             line-height: 1.7;
         }
 
@@ -537,11 +717,16 @@
         @media (max-width: 950px) {
 
             .module-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
+
             .plans {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
             }
 
         }
@@ -550,37 +735,55 @@
         @media (max-width: 750px) {
 
             .navbar {
+
                 height: auto;
+
                 padding: 14px 5%;
 
                 flex-direction: column;
+
                 gap: 12px;
             }
 
+
             .nav-links {
+
                 width: 100%;
+
                 overflow-x: auto;
 
                 justify-content: flex-start;
+
                 padding-bottom: 3px;
             }
 
+
             .nav-links a {
+
                 white-space: nowrap;
+
                 font-size: 12px;
+
                 padding: 8px 11px;
             }
 
+
             header h1 {
+
                 font-size: 31px;
             }
 
+
             header p {
+
                 font-size: 14px;
             }
 
+
             .community-box {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
             }
 
         }
@@ -589,28 +792,42 @@
         @media (max-width: 600px) {
 
             .module-grid {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
             }
 
+
             .hex {
+
                 height: 175px;
             }
 
+
             .ai-section {
+
                 padding: 35px 20px;
             }
 
+
             .search-box {
+
                 flex-direction: column;
+
                 gap: 6px;
+
                 background: transparent;
             }
 
+
             .search-box input {
+
                 height: 46px;
             }
 
+
             .search-box button {
+
                 height: 46px;
             }
 
@@ -630,8 +847,11 @@
 
 <nav class="navbar">
 
+
     <div class="logo">
+
         SIMSON <span>360°</span>
+
     </div>
 
 
@@ -659,27 +879,38 @@
 
     </div>
 
+
 </nav>
 
 
 
 <!-- =====================================================
-     HOME TAB
+     HERO
 ===================================================== -->
 
-<header id="home" class="tab-content active">
+<header id="home">
+
 
     <div class="header-tag">
+
         SIMSON LIFE SCIENCES
+
     </div>
 
+
     <h1>
+
         360° Research Support Ecosystem
+
     </h1>
 
+
     <p>
+
         From one molecule search to end-to-end research support
+
     </p>
+
 
 </header>
 
@@ -692,11 +923,13 @@
 <main class="container">
 
 
+
     <!-- =================================================
-         CORE MODULES TAB
+         CORE MODULES
     ================================================== -->
 
-    <section class="section tab-content" id="modules">
+    <section class="section" id="modules">
+
 
         <div class="section-heading">
 
@@ -709,6 +942,7 @@
             </p>
 
         </div>
+
 
 
         <div class="module-grid">
@@ -733,6 +967,7 @@
             </div>
 
 
+
             <!-- MODULE 2 -->
 
             <div class="hex">
@@ -750,6 +985,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- MODULE 3 -->
@@ -771,6 +1007,7 @@
             </div>
 
 
+
             <!-- MODULE 4 -->
 
             <div class="hex">
@@ -790,6 +1027,7 @@
             </div>
 
 
+
             <!-- MODULE 5 -->
 
             <div class="hex">
@@ -807,6 +1045,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- MODULE 6 -->
@@ -830,15 +1069,17 @@
 
         </div>
 
+
     </section>
 
 
 
     <!-- =================================================
-         COMMUNITY TAB
+         COMMUNITY
     ================================================== -->
 
-    <section class="section tab-content" id="community">
+    <section class="section" id="community">
+
 
         <div class="section-heading">
 
@@ -851,6 +1092,7 @@
             </p>
 
         </div>
+
 
 
         <div class="community-box">
@@ -869,6 +1111,7 @@
             </div>
 
 
+
             <div class="community-item">
 
                 <span class="check">
@@ -880,6 +1123,7 @@
                 </span>
 
             </div>
+
 
 
             <div class="community-item">
@@ -895,6 +1139,7 @@
             </div>
 
 
+
             <div class="community-item">
 
                 <span class="check">
@@ -908,6 +1153,7 @@
             </div>
 
 
+
             <div class="community-item">
 
                 <span class="check">
@@ -919,6 +1165,7 @@
                 </span>
 
             </div>
+
 
 
             <div class="community-item">
@@ -936,15 +1183,17 @@
 
         </div>
 
+
     </section>
 
 
 
     <!-- =================================================
-         SUBSCRIPTION TAB
+         SUBSCRIPTION
     ================================================== -->
 
-    <section class="section tab-content" id="subscription">
+    <section class="section" id="subscription">
+
 
         <div class="section-heading">
 
@@ -959,6 +1208,7 @@
         </div>
 
 
+
         <div class="plans">
 
 
@@ -971,9 +1221,12 @@
                 </h3>
 
                 <p>
+
                     Quarterly shipments
                     <br>
+
                     Technical support
+
                 </p>
 
             </div>
@@ -984,21 +1237,33 @@
 
             <div class="plan premium">
 
+
                 <div class="popular">
+
                     MOST POPULAR
+
                 </div>
 
+
                 <h3>
+
                     Premium
+
                 </h3>
 
+
                 <p>
+
                     Early access to new products
                     <br>
+
                     Regulatory updates
                     <br>
+
                     Enhanced research support
+
                 </p>
+
 
             </div>
 
@@ -1009,15 +1274,22 @@
             <div class="plan">
 
                 <h3>
+
                     Enterprise
+
                 </h3>
 
+
                 <p>
+
                     All benefits
                     <br>
+
                     Dedicated account manager
                     <br>
+
                     Customized support
+
                 </p>
 
             </div>
@@ -1025,24 +1297,32 @@
 
         </div>
 
+
     </section>
 
 
 
     <!-- =================================================
-         AI RESEARCH TAB
+         AI RESEARCH
     ================================================== -->
 
-    <section class="section tab-content" id="ai">
+    <section class="section" id="ai">
+
 
         <div class="ai-section">
 
+
             <div class="ai-label">
+
                 AI-POWERED RESEARCH
+
             </div>
 
+
             <h2>
+
                 AI Research Companion
+
             </h2>
 
 
@@ -1058,14 +1338,19 @@
 
             <div class="search-box">
 
+
                 <input
                     type="text"
                     placeholder="Enter CAS number, API or molecule name..."
                 >
 
+
                 <button>
+
                     Search
+
                 </button>
+
 
             </div>
 
@@ -1080,6 +1365,7 @@
 
         </div>
 
+
     </section>
 
 
@@ -1093,11 +1379,13 @@
 
 <footer>
 
+
     © 2026 Simson Life Sciences Pvt. Ltd.
 
     <br>
 
     Research Support • Scientific Intelligence • Innovation
+
 
 </footer>
 
@@ -1109,107 +1397,87 @@
 
 <script>
 
+    /* ---------------------------------------------
+       ACTIVE NAVIGATION TAB
+    --------------------------------------------- */
 
-/* =====================================================
-   TAB NAVIGATION
-===================================================== */
+    const sections =
+        document.querySelectorAll("section, header");
 
-const navLinks =
-    document.querySelectorAll(".nav-links a");
-
-const tabContents =
-    document.querySelectorAll(".tab-content");
-
-
-navLinks.forEach(link => {
-
-    link.addEventListener("click", function(e) {
-
-        e.preventDefault();
+    const navLinks =
+        document.querySelectorAll(".nav-links a");
 
 
-        /* Remove active from every tab */
+    window.addEventListener("scroll", () => {
 
-        navLinks.forEach(nav => {
-            nav.classList.remove("active");
+        let current = "home";
+
+
+        sections.forEach(section => {
+
+            const sectionTop =
+                section.offsetTop - 120;
+
+            if (window.scrollY >= sectionTop) {
+
+                current =
+                    section.getAttribute("id");
+
+            }
+
         });
 
 
-        /* Hide every section */
+        navLinks.forEach(link => {
 
-        tabContents.forEach(section => {
-            section.classList.remove("active");
-        });
+            link.classList.remove("active");
 
 
-        /* Activate clicked navigation tab */
+            if (
+                link.getAttribute("href")
+                === "#" + current
+            ) {
 
-        this.classList.add("active");
+                link.classList.add("active");
 
+            }
 
-        /* Find selected section */
-
-        const target =
-            this.getAttribute("href");
-
-        const targetSection =
-            document.querySelector(target);
-
-
-        /* Show selected section */
-
-        if (targetSection) {
-
-            targetSection.classList.add("active");
-
-        }
-
-
-        /* Move page to top */
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
         });
 
     });
 
-});
+
+    /* ---------------------------------------------
+       SEARCH BUTTON
+    --------------------------------------------- */
+
+    const searchButton =
+        document.querySelector(".search-box button");
 
 
+    searchButton.addEventListener("click", () => {
 
-/* =====================================================
-   SEARCH BUTTON
-===================================================== */
-
-const searchButton =
-    document.querySelector(".search-box button");
+        const input =
+            document.querySelector(".search-box input");
 
 
-searchButton.addEventListener("click", () => {
+        if (input.value.trim() === "") {
 
-    const input =
-        document.querySelector(".search-box input");
+            alert(
+                "Please enter a CAS number, API name, or molecule name."
+            );
 
+            return;
 
-    if (input.value.trim() === "") {
+        }
+
 
         alert(
-            "Please enter a CAS number, API name, or molecule name."
+            "Research Companion search initiated for: "
+            + input.value
         );
 
-        return;
-
-    }
-
-
-    alert(
-        "Research Companion search initiated for: "
-        + input.value
-    );
-
-});
-
+    });
 
 </script>
 
@@ -1217,4 +1485,3 @@ searchButton.addEventListener("click", () => {
 </body>
 
 </html>
-```
