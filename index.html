@@ -1,895 +1,1487 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simson 360° Research Support Ecosystem</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>Simson 360° Research Support Ecosystem</title>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #f5f8fc;
-    color: #123b60;
-}
+    <style>
 
-/* ================= HEADER ================= */
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
 
-header {
-    background: linear-gradient(135deg, #003b6f, #087ee8);
-    color: white;
-    text-align: center;
-    padding: 55px 20px;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.header-tag {
-    display: inline-block;
-    padding: 6px 16px;
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 30px;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-}
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
 
-header h1 {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f8fc;
+            color: #123b60;
+            line-height: 1.6;
+        }
 
-header p {
-    font-size: 17px;
-    opacity: 0.9;
-}
 
+        /* =====================================================
+           NAVIGATION BAR
+        ===================================================== */
 
-/* ================= MAIN CONTAINER ================= */
+        .navbar {
 
-.container {
-    width: 92%;
-    max-width: 1250px;
-    margin: 45px auto;
-}
+            height: 68px;
 
+            background: #ffffff;
 
-/* ================= SECTION ================= */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-.section {
-    margin-bottom: 55px;
-}
+            padding: 0 6%;
 
-.section-heading {
-    text-align: center;
-    margin-bottom: 28px;
-}
+            position: sticky;
+            top: 0;
 
-.section-heading h2 {
-    font-size: 28px;
-    color: #075ca8;
-    margin-bottom: 6px;
-}
+            z-index: 1000;
 
-.section-heading p {
-    font-size: 14px;
-    color: #718096;
-}
+            border-bottom: 1px solid #e3ebf3;
 
+            box-shadow:
+                0 2px 12px rgba(0, 50, 100, 0.06);
+        }
 
-/* ================= CORE MODULES ================= */
 
-/* Clean 3 x 2 grid */
+        /* Logo */
 
-.module-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1050px;
-    margin: auto;
-}
+        .logo {
 
+            font-size: 20px;
 
-/* Hexagon wrapper */
+            font-weight: 700;
 
-.hex {
-    position: relative;
-    height: 165px;
+            color: #064f91;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            white-space: nowrap;
+        }
 
-    text-align: center;
 
-    padding: 30px 35px;
+        .logo span {
 
-    color: white;
-}
+            color: #087ee8;
+        }
 
 
-/* Actual hexagon */
+        /* Navigation links */
 
-.hex::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+        .nav-links {
 
-    background: linear-gradient(
-        135deg,
-        #087ff0,
-        #0067ce
-    );
+            display: flex;
 
-    clip-path: polygon(
-        25% 0%,
-        75% 0%,
-        100% 50%,
-        75% 100%,
-        25% 100%,
-        0% 50%
-    );
+            align-items: center;
 
-    z-index: 0;
-}
+            gap: 5px;
+        }
 
 
-/* Text stays ABOVE the shape */
+        .nav-links a {
 
-.hex-content {
-    position: relative;
-    z-index: 2;
+            text-decoration: none;
 
-    width: 100%;
-}
+            color: #49657d;
 
+            font-size: 13px;
 
-.hex h3 {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 7px;
-    white-space: nowrap;
-}
+            font-weight: 600;
 
-.hex p {
-    font-size: 12px;
-    line-height: 1.4;
-    color: #eaf4ff;
-}
+            padding: 9px 14px;
 
+            border-radius: 7px;
 
-/* ================= COMMUNITY ================= */
+            transition: all 0.2s ease;
+        }
 
-.community-box {
-    background: white;
 
-    border: 1px solid #e1eaf3;
-    border-radius: 14px;
+        .nav-links a:hover {
 
-    padding: 28px 35px;
+            background: #eef7ff;
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+            color: #0877d1;
+        }
 
-    gap: 16px 45px;
 
-    max-width: 1050px;
-    margin: auto;
+        .nav-links a.active {
 
-    box-shadow: 0 5px 18px rgba(0, 50, 100, 0.06);
-}
+            background: #087ee8;
 
+            color: white;
+        }
 
-.community-item {
-    display: flex;
-    align-items: center;
 
-    gap: 12px;
+        /* =====================================================
+           HERO HEADER
+        ===================================================== */
 
-    font-size: 14px;
-    color: #40566d;
-}
+        header {
 
+            background:
+                linear-gradient(
+                    135deg,
+                    #003b6f,
+                    #087ee8
+                );
 
-.check {
-    width: 26px;
-    height: 26px;
+            color: white;
 
-    min-width: 26px;
+            text-align: center;
 
-    border-radius: 50%;
+            padding: 65px 20px;
+        }
 
-    background: #e9f5ff;
-    color: #0877d1;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        .header-tag {
 
-    font-size: 13px;
-    font-weight: bold;
-}
+            display: inline-block;
 
+            padding: 6px 17px;
 
-/* ================= SUBSCRIPTION ================= */
+            border: 1px solid rgba(255,255,255,0.4);
 
-.plans {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+            border-radius: 30px;
 
-    gap: 22px;
+            font-size: 11px;
 
-    max-width: 1050px;
-    margin: auto;
-}
+            letter-spacing: 1.5px;
 
+            margin-bottom: 16px;
+        }
 
-.plan {
-    background: white;
 
-    border: 1px solid #dce7f0;
-    border-radius: 14px;
+        header h1 {
 
-    padding: 30px 25px;
+            font-size: 42px;
 
-    text-align: center;
+            font-weight: 700;
 
-    min-height: 160px;
+            margin-bottom: 10px;
+        }
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
-    transition: 0.25s ease;
-}
+        header p {
 
+            font-size: 17px;
 
-.plan:hover {
-    transform: translateY(-4px);
+            opacity: 0.9;
+        }
 
-    box-shadow:
-        0 10px 25px rgba(0, 65, 120, 0.10);
-}
 
+        /* =====================================================
+           MAIN CONTAINER
+        ===================================================== */
 
-.plan h3 {
-    font-size: 20px;
-    color: #064f91;
-    margin-bottom: 14px;
-}
+        .container {
 
+            width: 92%;
 
-.plan p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #64788b;
-}
+            max-width: 1250px;
 
+            margin: 50px auto;
+        }
 
-/* Premium */
 
-.plan.premium {
-    border: 2px solid #087ee8;
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
 
-    box-shadow:
-        0 8px 25px rgba(8, 126, 232, 0.12);
+        .section {
 
-    position: relative;
-}
+            margin-bottom: 65px;
+        }
 
 
-.popular {
-    position: absolute;
+        .section-heading {
 
-    top: -12px;
-    left: 50%;
+            text-align: center;
 
-    transform: translateX(-50%);
+            margin-bottom: 30px;
+        }
 
-    background: #087ee8;
-    color: white;
 
-    padding: 5px 16px;
+        .section-heading h2 {
 
-    border-radius: 20px;
+            font-size: 28px;
 
-    font-size: 10px;
-    font-weight: 700;
+            color: #075ca8;
 
-    letter-spacing: 0.5px;
-}
+            margin-bottom: 6px;
+        }
 
 
-/* ================= AI PORTAL ================= */
+        .section-heading p {
 
-.ai-section {
+            font-size: 14px;
 
-    max-width: 1050px;
-    margin: auto;
+            color: #718096;
+        }
 
-    background:
-        linear-gradient(
-            135deg,
-            #003b6f,
-            #087ee8
-        );
 
-    color: white;
+        /* =====================================================
+           CORE MODULES
+        ===================================================== */
 
-    border-radius: 20px;
+        .module-grid {
 
-    padding: 45px 50px;
+            display: grid;
 
-    text-align: center;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-    box-shadow:
-        0 15px 35px rgba(0, 60, 110, 0.18);
-}
+            gap: 30px;
 
+            max-width: 1050px;
 
-.ai-label {
+            margin: auto;
+        }
 
-    display: inline-block;
 
-    background: rgba(255,255,255,0.15);
+        /* Hexagon */
 
-    border: 1px solid rgba(255,255,255,0.25);
+        .hex {
 
-    padding: 6px 15px;
+            position: relative;
 
-    border-radius: 20px;
+            height: 175px;
 
-    font-size: 11px;
+            display: flex;
 
-    letter-spacing: 1px;
+            align-items: center;
 
-    margin-bottom: 14px;
-}
+            justify-content: center;
 
+            text-align: center;
 
-.ai-section h2 {
-    font-size: 29px;
-    margin-bottom: 12px;
-}
+            padding: 30px 45px;
 
+            color: white;
+        }
 
-.ai-description {
 
-    max-width: 800px;
+        /* Shape */
 
-    margin: auto;
+        .hex::before {
 
-    font-size: 14px;
+            content: "";
 
-    line-height: 1.7;
+            position: absolute;
 
-    opacity: 0.9;
-}
+            inset: 0;
 
+            background:
+                linear-gradient(
+                    135deg,
+                    #087ff0,
+                    #0067ce
+                );
 
-/* Search */
+            clip-path:
+                polygon(
+                    25% 0%,
+                    75% 0%,
+                    100% 50%,
+                    75% 100%,
+                    25% 100%,
+                    0% 50%
+                );
 
-.search-box {
+            z-index: 0;
 
-    max-width: 650px;
+            transition: 0.25s ease;
+        }
 
-    margin: 28px auto 20px;
 
-    display: flex;
+        /* Hover */
 
-    background: white;
+        .hex:hover::before {
 
-    padding: 5px;
+            transform: scale(1.04);
 
-    border-radius: 9px;
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    #0067ce,
+                    #0054aa
+                );
+        }
 
 
-.search-box input {
+        /* Text */
 
-    flex: 1;
+        .hex-content {
 
-    border: none;
+            position: relative;
 
-    outline: none;
+            z-index: 2;
 
-    padding: 13px 15px;
+            width: 100%;
+        }
 
-    font-size: 13px;
 
-    color: #333;
+        .hex h3 {
 
-    border-radius: 7px;
-}
+            font-size: 17px;
 
+            font-weight: 600;
 
-.search-box button {
+            margin-bottom: 7px;
 
-    border: none;
+            white-space: nowrap;
+        }
 
-    background: #076dcc;
 
-    color: white;
+        .hex p {
 
-    padding: 0 24px;
+            font-size: 12px;
 
-    border-radius: 7px;
+            line-height: 1.4;
 
-    font-weight: 600;
+            color: #eaf4ff;
+        }
 
-    cursor: pointer;
-}
 
+        /* =====================================================
+           COMMUNITY
+        ===================================================== */
 
-.tagline {
+        .community-box {
 
-    font-size: 15px;
+            background: white;
 
-    font-weight: 600;
+            border: 1px solid #e1eaf3;
 
-    margin-top: 15px;
-}
+            border-radius: 14px;
 
+            padding: 30px 40px;
 
-/* ================= FOOTER ================= */
+            display: grid;
 
-footer {
+            grid-template-columns:
+                repeat(2, 1fr);
 
-    background: #06365e;
+            gap: 18px 50px;
 
-    color: #cbd9e5;
+            max-width: 1050px;
 
-    text-align: center;
+            margin: auto;
 
-    padding: 22px;
+            box-shadow:
+                0 5px 18px
+                rgba(0, 50, 100, 0.06);
+        }
 
-    font-size: 12px;
 
-    line-height: 1.7;
-}
+        .community-item {
 
+            display: flex;
 
-/* ================= RESPONSIVE ================= */
+            align-items: center;
 
-@media (max-width: 900px) {
+            gap: 12px;
 
-    .module-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+            font-size: 14px;
 
-    .plans {
-        grid-template-columns: 1fr;
-    }
+            color: #40566d;
+        }
 
-}
 
+        .check {
 
-@media (max-width: 600px) {
+            width: 27px;
 
-    header h1 {
-        font-size: 29px;
-    }
+            height: 27px;
 
-    header p {
-        font-size: 14px;
-    }
+            min-width: 27px;
 
-    .module-grid {
-        grid-template-columns: 1fr;
-    }
+            border-radius: 50%;
 
-    .community-box {
-        grid-template-columns: 1fr;
-    }
+            background: #e9f5ff;
 
-    .ai-section {
-        padding: 35px 20px;
-    }
+            color: #0877d1;
 
-    .search-box {
-        flex-direction: column;
-        gap: 6px;
-        background: transparent;
-    }
+            display: flex;
 
-    .search-box input {
-        height: 45px;
-    }
+            align-items: center;
 
-    .search-box button {
-        height: 45px;
-    }
+            justify-content: center;
 
-}
+            font-size: 13px;
 
-</style>
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           SUBSCRIPTION
+        ===================================================== */
+
+        .plans {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+
+            max-width: 1050px;
+
+            margin: auto;
+        }
+
+
+        .plan {
+
+            background: white;
+
+            border: 1px solid #dce7f0;
+
+            border-radius: 14px;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            min-height: 165px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            position: relative;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .plan:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 65, 120, 0.10);
+        }
+
+
+        .plan h3 {
+
+            font-size: 20px;
+
+            color: #064f91;
+
+            margin-bottom: 14px;
+        }
+
+
+        .plan p {
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            color: #64788b;
+        }
+
+
+        /* Premium card */
+
+        .plan.premium {
+
+            border: 2px solid #087ee8;
+
+            box-shadow:
+                0 8px 25px
+                rgba(8, 126, 232, 0.12);
+        }
+
+
+        .popular {
+
+            position: absolute;
+
+            top: -12px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: #087ee8;
+
+            color: white;
+
+            padding: 5px 16px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* =====================================================
+           AI RESEARCH COMPANION
+        ===================================================== */
+
+        .ai-section {
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #003b6f,
+                    #087ee8
+                );
+
+            color: white;
+
+            border-radius: 20px;
+
+            padding: 48px 50px;
+
+            text-align: center;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 60, 110, 0.18);
+        }
+
+
+        .ai-label {
+
+            display: inline-block;
+
+            background:
+                rgba(255,255,255,0.15);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.25);
+
+            padding: 6px 15px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .ai-section h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .ai-description {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            opacity: 0.9;
+        }
+
+
+        /* Search */
+
+        .search-box {
+
+            max-width: 650px;
+
+            margin: 28px auto 20px;
+
+            display: flex;
+
+            background: white;
+
+            padding: 5px;
+
+            border-radius: 9px;
+        }
+
+
+        .search-box input {
+
+            flex: 1;
+
+            border: none;
+
+            outline: none;
+
+            padding: 13px 15px;
+
+            font-size: 13px;
+
+            color: #333;
+
+            border-radius: 7px;
+        }
+
+
+        .search-box button {
+
+            border: none;
+
+            background: #076dcc;
+
+            color: white;
+
+            padding: 0 24px;
+
+            border-radius: 7px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+
+        .search-box button:hover {
+
+            background: #0059ad;
+        }
+
+
+        .tagline {
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            margin-top: 15px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #06365e;
+
+            color: #cbd9e5;
+
+            text-align: center;
+
+            padding: 24px;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE DESIGN
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .module-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .plans {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .navbar {
+
+                height: auto;
+
+                padding: 14px 5%;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+
+            .nav-links {
+
+                width: 100%;
+
+                overflow-x: auto;
+
+                justify-content: flex-start;
+
+                padding-bottom: 3px;
+            }
+
+
+            .nav-links a {
+
+                white-space: nowrap;
+
+                font-size: 12px;
+
+                padding: 8px 11px;
+            }
+
+
+            header h1 {
+
+                font-size: 31px;
+            }
+
+
+            header p {
+
+                font-size: 14px;
+            }
+
+
+            .community-box {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .module-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .hex {
+
+                height: 175px;
+            }
+
+
+            .ai-section {
+
+                padding: 35px 20px;
+            }
+
+
+            .search-box {
+
+                flex-direction: column;
+
+                gap: 6px;
+
+                background: transparent;
+            }
+
+
+            .search-box input {
+
+                height: 46px;
+            }
+
+
+            .search-box button {
+
+                height: 46px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-<header>
+<nav class="navbar">
 
-    <div class="header-tag">
-        SIMSON LIFE SCIENCES
+
+    <div class="logo">
+
+        SIMSON <span>360°</span>
+
     </div>
 
+
+    <div class="nav-links">
+
+        <a href="#home" class="active">
+            Home
+        </a>
+
+        <a href="#modules">
+            Core Modules
+        </a>
+
+        <a href="#community">
+            Community
+        </a>
+
+        <a href="#subscription">
+            Subscription
+        </a>
+
+        <a href="#ai">
+            AI Research
+        </a>
+
+    </div>
+
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header id="home">
+
+
+    <div class="header-tag">
+
+        SIMSON ELEVATE LIFE SCIENCES
+
+    </div>
+
+
     <h1>
+
         360° Research Support Ecosystem
+
     </h1>
 
+
     <p>
+
         From one molecule search to end-to-end research support
+
     </p>
+
 
 </header>
 
 
 
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
 <main class="container">
 
 
-<!-- ================= CORE MODULES ================= -->
 
-<section class="section">
+    <!-- =================================================
+         CORE MODULES
+    ================================================== -->
 
-    <div class="section-heading">
+    <section class="section" id="modules">
 
-        <h2>
-            Research Support Ecosystem
-        </h2>
 
-        <p>
-            Everything researchers need, connected in one ecosystem.
-        </p>
+        <div class="section-heading">
 
-    </div>
-
-
-    <div class="module-grid">
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>ON SEARCH</h3>
-
-                <p>
-                    Explore molecule properties
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>RE-ORDER</h3>
-
-                <p>
-                    Re-order for further research
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>ON SYNTHESIS</h3>
-
-                <p>
-                    Support molecule development
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>QC & IDENTITY</h3>
-
-                <p>
-                    Verify quality and identity
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>TECHNICAL SUPPORT</h3>
-
-                <p>
-                    Expert scientific guidance
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="hex">
-
-            <div class="hex-content">
-
-                <h3>DATA MANAGEMENT</h3>
-
-                <p>
-                    Organize research data
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= COMMUNITY ================= -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <h2>
-            Scientific Community
-        </h2>
-
-        <p>
-            Learn, collaborate and stay updated.
-        </p>
-
-    </div>
-
-
-    <div class="community-box">
-
-
-        <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Ask technical questions
-            </span>
-
-        </div>
-
-
-        <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Download regulatory updates
-            </span>
-
-        </div>
-
-
-        <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Attend webinars and discussions
-            </span>
-
-        </div>
-
-
-        <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Access application notes
-            </span>
-
-        </div>
-
-
-        <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Earn badges and certificates
-            </span>
-
-        </div>
-
-
-        <div class="community-item">
-
-            <span class="check">✓</span>
-
-            <span>
-                Participate in scientific challenges
-            </span>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= SUBSCRIPTION ================= -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <h2>
-            Scientific Subscription
-        </h2>
-
-        <p>
-            Flexible research support for every requirement.
-        </p>
-
-    </div>
-
-
-    <div class="plans">
-
-
-        <div class="plan">
-
-            <h3>
-                Basic
-            </h3>
+            <h2>
+                Research Support Ecosystem
+            </h2>
 
             <p>
-                Quarterly shipments<br>
-                Technical support
+                Everything researchers need, connected in one ecosystem.
             </p>
 
         </div>
 
 
 
-        <div class="plan premium">
+        <div class="module-grid">
 
-            <div class="popular">
-                MOST POPULAR
+
+            <!-- MODULE 1 -->
+
+            <div class="hex">
+
+                <div class="hex-content">
+
+                    <h3>
+                        ON SEARCH
+                    </h3>
+
+                    <p>
+                        Explore molecule properties
+                    </p>
+
+                </div>
+
             </div>
 
-            <h3>
-                Premium
-            </h3>
+
+
+            <!-- MODULE 2 -->
+
+            <div class="hex">
+
+                <div class="hex-content">
+
+                    <h3>
+                        RE-ORDER
+                    </h3>
+
+                    <p>
+                        Re-order for further research
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MODULE 3 -->
+
+            <div class="hex">
+
+                <div class="hex-content">
+
+                    <h3>
+                        ON SYNTHESIS
+                    </h3>
+
+                    <p>
+                        Support molecule development
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MODULE 4 -->
+
+            <div class="hex">
+
+                <div class="hex-content">
+
+                    <h3>
+                        QC & IDENTITY
+                    </h3>
+
+                    <p>
+                        Verify quality and identity
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MODULE 5 -->
+
+            <div class="hex">
+
+                <div class="hex-content">
+
+                    <h3>
+                        TECHNICAL SUPPORT
+                    </h3>
+
+                    <p>
+                        Expert scientific guidance
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MODULE 6 -->
+
+            <div class="hex">
+
+                <div class="hex-content">
+
+                    <h3>
+                        DATA MANAGEMENT
+                    </h3>
+
+                    <p>
+                        Organize research data
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         COMMUNITY
+    ================================================== -->
+
+    <section class="section" id="community">
+
+
+        <div class="section-heading">
+
+            <h2>
+                Scientific Community
+            </h2>
 
             <p>
-                Early access to new products<br>
-                Regulatory updates
+                Learn, collaborate and stay updated.
             </p>
 
         </div>
 
 
 
-        <div class="plan">
+        <div class="community-box">
 
-            <h3>
-                Enterprise
-            </h3>
+
+            <div class="community-item">
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <span>
+                    Ask technical questions
+                </span>
+
+            </div>
+
+
+
+            <div class="community-item">
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <span>
+                    Download regulatory updates
+                </span>
+
+            </div>
+
+
+
+            <div class="community-item">
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <span>
+                    Attend webinars and discussions
+                </span>
+
+            </div>
+
+
+
+            <div class="community-item">
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <span>
+                    Access application notes
+                </span>
+
+            </div>
+
+
+
+            <div class="community-item">
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <span>
+                    Earn badges and certificates
+                </span>
+
+            </div>
+
+
+
+            <div class="community-item">
+
+                <span class="check">
+                    ✓
+                </span>
+
+                <span>
+                    Participate in scientific challenges
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         SUBSCRIPTION
+    ================================================== -->
+
+    <section class="section" id="subscription">
+
+
+        <div class="section-heading">
+
+            <h2>
+                Scientific Subscription
+            </h2>
 
             <p>
-                All benefits<br>
-                Dedicated account manager
+                Flexible research support for every requirement.
             </p>
 
         </div>
 
 
-    </div>
 
-</section>
-
+        <div class="plans">
 
 
-<!-- ================= AI PORTAL ================= -->
+            <!-- BASIC -->
 
-<section class="section">
+            <div class="plan">
 
-    <div class="ai-section">
+                <h3>
+                    Basic
+                </h3>
 
-        <div class="ai-label">
-            AI-POWERED RESEARCH
+                <p>
+
+                    Quarterly shipments
+                    <br>
+
+                    Technical support
+
+                </p>
+
+            </div>
+
+
+
+            <!-- PREMIUM -->
+
+            <div class="plan premium">
+
+
+                <div class="popular">
+
+                    MOST POPULAR
+
+                </div>
+
+
+                <h3>
+
+                    Premium
+
+                </h3>
+
+
+                <p>
+
+                    Early access to new products
+                    <br>
+
+                    Regulatory updates
+                    <br>
+
+                    Enhanced research support
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- ENTERPRISE -->
+
+            <div class="plan">
+
+                <h3>
+
+                    Enterprise
+
+                </h3>
+
+
+                <p>
+
+                    All benefits
+                    <br>
+
+                    Dedicated account manager
+                    <br>
+
+                    Customized support
+
+                </p>
+
+            </div>
+
+
         </div>
 
 
-        <h2>
-            AI Research Companion
-        </h2>
+    </section>
 
 
-        <p class="ai-description">
 
-            Upload a CAS Number, API Name or Molecule Name
-            to instantly discover impurities, reference standards,
-            isotopes, nitrosamines, metabolites and regulatory documents.
+    <!-- =================================================
+         AI RESEARCH
+    ================================================== -->
 
-        </p>
+    <section class="section" id="ai">
 
 
-        <div class="search-box">
+        <div class="ai-section">
 
-            <input
-                type="text"
-                placeholder="Enter CAS number, API or molecule name..."
-            >
 
-            <button>
-                Search
-            </button>
+            <div class="ai-label">
+
+                AI-POWERED RESEARCH
+
+            </div>
+
+
+            <h2>
+
+                AI Research Companion
+
+            </h2>
+
+
+            <p class="ai-description">
+
+                Upload a CAS Number, API Name or Molecule Name
+                to instantly discover impurities, reference standards,
+                isotopes, nitrosamines, metabolites and regulatory documents.
+
+            </p>
+
+
+
+            <div class="search-box">
+
+
+                <input
+                    type="text"
+                    placeholder="Enter CAS number, API or molecule name..."
+                >
+
+
+                <button>
+
+                    Search
+
+                </button>
+
+
+            </div>
+
+
+
+            <p class="tagline">
+
+                “Don’t just sell chemicals. Sell scientific intelligence.”
+
+            </p>
+
 
         </div>
 
 
-        <p class="tagline">
-
-            “Don’t just sell chemicals. Sell scientific intelligence.”
-
-        </p>
-
-    </div>
-
-</section>
+    </section>
 
 
 </main>
 
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-    © 2026 Simson Life Sciences Pvt. Ltd.
+
+    © 2026 Simson Elevate Life Sciences Pvt. Ltd.
+
     <br>
 
     Research Support • Scientific Intelligence • Innovation
 
+
 </footer>
 
 
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    /* ---------------------------------------------
+       ACTIVE NAVIGATION TAB
+    --------------------------------------------- */
+
+    const sections =
+        document.querySelectorAll("section, header");
+
+    const navLinks =
+        document.querySelectorAll(".nav-links a");
+
+
+    window.addEventListener("scroll", () => {
+
+        let current = "home";
+
+
+        sections.forEach(section => {
+
+            const sectionTop =
+                section.offsetTop - 120;
+
+            if (window.scrollY >= sectionTop) {
+
+                current =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+
+            if (
+                link.getAttribute("href")
+                === "#" + current
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    });
+
+
+    /* ---------------------------------------------
+       SEARCH BUTTON
+    --------------------------------------------- */
+
+    const searchButton =
+        document.querySelector(".search-box button");
+
+
+    searchButton.addEventListener("click", () => {
+
+        const input =
+            document.querySelector(".search-box input");
+
+
+        if (input.value.trim() === "") {
+
+            alert(
+                "Please enter a CAS number, API name, or molecule name."
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "Research Companion search initiated for: "
+            + input.value
+        );
+
+    });
+
+</script>
+
+
 </body>
+
 </html>
